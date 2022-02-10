@@ -1,0 +1,124 @@
+.card_page_content {
+	min-width: 1200px;
+	width: 80%;
+	margin: 0 auto;
+}
+.card_box_1{
+	background-image: url('~@ibg/warrantchain/bg1.png');
+	height: 27vw;
+	min-height: 324px;
+}
+.card_box_1 .card_box_center {
+	height: 100%;
+	-webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.card_box_1 .text_1 {
+	font-size:24px;
+	color: #6FA6F9;
+}
+.card_box_1 .text_2 {
+	margin-top: 40px;
+	font-size:18px;
+	color: #fff;
+	line-height: 30px;
+	width: 462px;
+}
+.card_box_1 .button_size {
+	margin-top: 29px;
+	height: 42px;
+	width: 150px;
+}
+.card_title {
+	font-size: 24px;
+	text-align: center;
+    font-family: STHeitiSC-Medium;
+    font-weight: bold;
+    padding: 55px 0;
+}
+.card_box_2 {
+	background-color: #fff;
+}
+.card_box_2 .introduce_box {
+	width: 23%;
+}
+.card_box_2 .introduce_img{
+	background-size: 100%;
+	margin: 0 auto;
+}
+.card_box_2 .introduce_img_1 {
+	width: 43px;
+	height: 43px;
+	background-image: url('~@ibg/warrantchain/icon1.svg');
+}
+.card_box_2 .introduce_img_2 {
+	width: 40px;
+	height: 46px;
+	background-image: url('~@ibg/warrantchain/icon2.svg');
+}
+.card_box_2 .introduce_img_3 {
+	width: 44px;
+	height: 44px;
+	background-image: url('~@ibg/warrantchain/icon3.svg');
+}
+.card_box_2 .introduce_img_4 {
+	width: 48px;
+	height: 48px;
+	background-image: url('~@ibg/warrantchain/icon4.svg');
+}
+.card_box_2 .introduce_text-1 {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 42px;
+}
+.card_box_2 .introduce_text-2 {
+	font-size: 14px;
+	color: #888888;
+	padding: 0 20px;
+    line-height: 24px;
+    margin-top: 25px;
+    text-align: justify;
+}
+.card_box_3 {
+	background-color: #F7F8F9;
+	padding-bottom: 70px;
+}
+.card_box_3 .card_box_3_bgimage {
+	width: 718px;
+	height: 310px;
+	margin: 0 auto;
+	background-image: url('~@ibg/warrantchain/bg2.png');
+}
+.card_box_4 {
+	background-color: #fff;
+}
+.card_box_4 .card_box_4_bgimage {
+	width: 1200px;
+	height: 420px;
+	margin: 0 auto;
+	background-image: url('~@ibg/warrantchain/bg3.png');
+}
+.card_box_5 {
+	background-color: #F7F8F9;
+	padding-bottom: 60px;
+}
+.card_box_5 .card_box_5_bgimage {
+	width: 1200px;
+	height: 364px;
+	margin: 0 auto;
+}
+.card_box_5 .card_box_5_bgimage div:first-of-type {
+	width: 555px;
+	background-image: url('~@ibg/warrantchain/bg4_1.png');
+}
+.card_box_5 .card_box_5_bgimage div:nth-of-type(2) {
+	width: 291px;
+	background-image: url('~@ibg/warrantchain/bg4-2.png');
+}
+.card_box_5 .card_box_5_bgimage div:nth-of-type(3) {
+	width: 291px;
+	background-image: url('~@ibg/warrantchain/bg4-3.png');
+}

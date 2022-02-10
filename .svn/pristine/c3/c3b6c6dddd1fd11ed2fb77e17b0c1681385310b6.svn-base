@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="46px" viewBox="0 0 40 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>分组</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="分组">
+            <path d="M19.9185843,0 L39.8371686,11.5 L39.8371686,34.5 L19.9185843,46 L2.30926389e-14,34.5 L1.0658141e-14,11.5 L19.9185843,0 Z M19.9185843,3 L2.59807621,13 L2.59807621,33 L19.9185843,43 L37.2390924,33 L37.2390924,13 L19.9185843,3 Z" id="合并形状" fill="#4E4F51"></path>
+            <rect id="矩形" fill="#4E4F51" x="15" y="13" width="3" height="23" rx="1.5"></rect>
+            <path d="M19,13.6887663 C19,13.6887663 19,13.6887663 19,13.6887663 L19,22.1168207 C19,22.5962609 19.4136968,23 19.9049618,23 L27.222224,23 C27.24808,23 27.2739361,23 27.3256482,23 C27.9461934,22.9495326 28.2047539,22.1925217 27.8169131,21.7383152 L20.3186586,13.2597935 C19.8791057,12.7551196 19.0258561,13.0326902 19,13.6887663 Z" id="路径" fill="#4A90E2"></path>
+        </g>
+    </g>
+</svg>

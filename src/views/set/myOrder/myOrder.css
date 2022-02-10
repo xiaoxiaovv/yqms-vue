@@ -1,0 +1,113 @@
+.wrap {
+	width: 100%;
+    min-width: 1200px;
+    background-color: var(--bg-wrap);
+}
+.myorder_box {
+	width: 90%;
+	min-height: calc(100vh - 212px);
+    background: var(--c-white);
+    margin: 20px auto;
+}
+.title {
+    color: var(--c-2);
+	font-size: 16px;
+	padding: 0 20px;
+	line-height: 42px;
+	font-weight: bold;
+}
+.tab_box {
+	/*border-top: 1px solid var(--c-db);
+	border-bottom: 1px solid var(--c-db);*/
+	border-top: 1px solid #F0F0F0;
+	border-bottom: 1px solid #F0F0F0;
+	padding: 8px 20px;
+}
+.tab_item {
+	display: inline-block;
+	padding: 0 8px;
+	border-radius: 2px;
+	/*border: 1px solid var(--c-db);*/
+	border: 1px solid #DADCDF;
+	line-height: 24px;
+	cursor: pointer;
+}
+.tab_item.hover {
+	color: var(--c-white);
+	background: #5090F1;
+	border-color: #5090F1;
+}
+.order_list_box {
+	padding: 0 20px;
+}
+.order_item {
+	line-height: 40px;
+	border-bottom: 1px solid #F0F0F0;
+	font-size: 0px;
+}
+.order_item span {
+	display: inline-block;
+	color: var(--c-2);
+	font-size: 14px;
+	margin-right: 20px;
+}
+.order_item span.order_type {
+	/*width: 80px;*/
+	width: 6.6%;
+}
+.order_item span.order_name {
+	/*width: 240px;*/
+	width: 20%;
+	font-weight: bold;
+}
+.order_item span.order_num {
+	/*width: 64px;*/
+	width: 5.3%;
+}
+.order_item span.order_price {
+	/*width: 96px;*/
+	width: 8%;
+}
+.order_item span.order_coupon {
+	/*width: 144px;*/
+	width: 12%;
+}
+.order_item span.order_sellingprice {
+	color: #E65441;
+	/*width: 96px;*/
+	width: 8%;
+}
+.order_item span.order_time {
+	/*width: 128px;*/
+	width: 10.6%;
+}
+.order_item span.order_status {
+	/*width: 60px;*/
+	width: 6%;
+	margin-right: 6px;
+}
+.order_item span.topaid {
+	color: #E65441;
+}
+.order_item span.invalid {
+	color: #999999;
+}
+.order_item span.complete {
+	color: #5090F1;
+}
+.order_item span.order_gopay {
+	color: var(--c-white);
+	font-size: 12px;
+	background: #E65441;
+	line-height: 24px;
+	box-shadow: 0px 2px 6px 0px rgba(230,84,65,0.6);
+	border-radius: 2px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+
+
+
+
+

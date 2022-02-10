@@ -1,0 +1,24 @@
+.judgment_apply_content {
+
+}
+.item_box {
+	width: 440px;
+	margin: 0 auto 20px;
+}
+.item_01 {
+	margin-top: 14px;
+}
+.item_box input {
+    width: 440px;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid #DADCDF;
+    border-radius: 2px;
+    padding: 0px 10px;
+}
+.err_box {
+	width: 440px;
+    margin: -18px auto 0;
+    color: red;
+    line-height: 24px;
+}

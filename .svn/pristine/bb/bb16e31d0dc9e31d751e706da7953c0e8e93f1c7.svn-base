@@ -1,0 +1,333 @@
+.commom_dialog_box {
+	position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1200;
+  text-align: center;
+}
+
+.commom_dialog_box::before {
+    content: "";
+    height: 100%;
+    /* display: inline-block; */
+    vertical-align: middle;
+}
+  .pops_newtask {
+    font-family: '黑体';
+    font-size: 14px;
+    font-weight: 400;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -222px;
+    z-index: 900;
+    width: 600px;
+    height: 443px;
+    background-color: rgba(255,255,255,1);
+    color: #222222;
+    border-radius: 2px;
+  }
+  .pops_newtask .main_content {
+    height: 100%;
+  }
+  
+  .pops_newtask .task_header {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 12px 10px 0 20px;
+    border-bottom: 1px solid #f4f4f4;
+  }
+  .pops_newtask .task_header .task_title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    position: relative;
+    text-align: left;
+  }
+  .pops_newtask .task_header .task_icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: left;
+    background: url('../../assets/images/taskImg/task_close.svg') no-repeat;
+  }
+  .pops_newtask .task_header .task_icon:hover {
+    background: url('../../assets/images/taskImg/task_close_hover.svg') no-repeat;
+  }
+  .pops_newtask .listbox {
+    width: 600px;
+    height: 345px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .pops_newtask .task_list {
+    width: 580px;
+    margin-left: 20px;
+  }
+  .pops_newtask .task_list li{
+    width: 560px;
+    height: 69px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #F4F4F4;
+    padding: 10px 0px 10px 0px;
+    /* background: green; */
+    position: relative;
+  }
+  .pops_newtask .task_list li:last-child {
+    border-bottom: none;
+  }
+  .pops_newtask .task_list .task_type {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+  .pops_newtask .task_list .task_loading {
+    padding: 20px 40px 20px 20px;
+    line-height: 29px;
+  }
+  .pops_newtask .task_loading span {
+    font-size: 12px;
+    color: #999;
+  }
+  .pops_newtask .task_list .task_loading i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(../../assets/images/taskImg/task_loading.gif);
+    vertical-align: middle;
+  }
+  .pops_newtask .task_list .task_name {
+    font-weight: 400;
+    line-height: 22px;
+    width: 275px;
+    position: absolute;
+    top: 14px;
+    left: 58px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    cursor: pointer;
+  }
+  .pops_newtask .task_list .task_description {
+    font-size:12px;
+    font-weight:400;
+    color:#999;
+    line-height:18px;
+    position: absolute;
+    top: 36px;
+    left: 58px;
+    width: 235px;
+    text-align: left;
+  } 
+  .pops_newtask .task_list .task_description .task_status,
+  .pops_newtask .task_list .task_description .task_size {
+    margin-right: 7px;
+  }
+  .pops_newtask .task_list .task_description .failed {
+    color: #E65441;
+  }
+  .pops_newtask .task_list .task_except {
+    position: absolute;
+    right: 102px;
+    top: 25px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #5090F1;
+  }
+  .pops_newtask .task_list .task_btn {
+    width: 82px;
+    height: 24px;
+    position: absolute;
+    border-left: 1px solid #F0F0F0;
+    top: 22px;
+    right: 0px;
+    padding: 4px 20px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  .pops_newtask .task_btn .task_btn_icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  .pops_newtask .task_btn .task_stop {
+    /* ../../assets/images/taskImg/task_stop.svg */
+    background: url('../../assets/images/taskImg/task_stop.svg') no-repeat;
+  }
+  .pops_newtask .task_btn .task_del {
+    background: url('../../assets/images/taskImg/task_del.svg') no-repeat;
+  }
+  .pops_newtask .task_btn .task_refresh {
+    background: url('../../assets/images/taskImg/task_refresh.svg') no-repeat;
+    margin-right: 5px;
+  }
+  .pops_newtask .task_btn .task_download {
+    background: url('../../assets/images/taskImg/task_download.svg') no-repeat;
+    margin-right: 5px;
+  }
+  .pops_newtask .task_btn .task_export {
+    background: url('../../assets/images/taskImg/task_export.svg') no-repeat;
+    margin-right: 5px;
+  }
+  .pops_newtask .task_btn .task_stop:hover {
+    background: url('../../assets/images/taskImg/task_stop_hover.svg') no-repeat;
+  }
+  .pops_newtask .task_btn .task_del:hover {
+    background: url('../../assets/images/taskImg/task_del_hover.svg') no-repeat;
+  }
+  .pops_newtask .task_btn .task_refresh:hover {
+    background: url('../../assets/images/taskImg/task_refresh_hover.svg') no-repeat;
+  }
+  .pops_newtask .task_btn .task_download:hover {
+    background: url('../../assets/images/taskImg/task_download_hover.svg') no-repeat;
+  }
+  .pops_newtask .task_btn .task_export:hover {
+    background: url('../../assets/images/taskImg/task_export_hover.svg') no-repeat;
+  }
+  .pops_newtask .task_footer {
+    width: 100%;
+    height: 48px;
+    position: relative;
+    border-top: 1px solid #f4f4f4;
+  }
+  .pops_newtask .task_footer .clear_all_btn {
+    width: 68px;
+    height: 24px;
+    border: 1px solid #DADCDF;
+    border-radius: 2px;
+    font-size:12px;
+    font-weight:400;
+    color:#666666;
+    line-height:18px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    padding: 2px 9px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .viewBtn {
+    position: relative;
+  }
+  #task_isread {
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: #E65441;
+    position: absolute;
+    top: -4px;
+    left: 20px;
+  }
+  .viewtask_box:hover #task_isread {
+    background: #fff;
+  }
+  .task_mask {
+    z-index: 901;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -222px;
+    width: 600px;
+    height: 443px; 
+    background-color: #000;
+    opacity: 0.3;
+  }
+  .pops_newtask .pops {
+    left: 155px;
+    top: 100px;
+    z-index: 902;
+  }
+  #checking {
+    width: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -25px;
+    z-index: 13;
+  }
+  #checking img {
+    width: 80px;
+    height: 50px;
+  }
+  #checking span {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    
+  }
+
+  .pops_newtask .pops {
+    left: 155px;
+    top: 100px;
+    z-index: 902;
+  }
+  .confirm_delEvent {
+    width: auto;
+}
+.confirm_delEvent {
+  background: #fff;
+  border-radius: 6px;
+  text-align: center;
+  font-family: Avenir,Helvetica,Arial,sans-serif;
+}
+.pops {
+  position: absolute;
+}
+.confirm_delEvent .content {
+  position: relative;
+  box-sizing: border-box;
+  padding: 60px 30px 30px 30px;
+}
+.confirm_delEvent .content .confirm_msg {
+  font-size: 16px;
+  color: #333;
+}
+.confirm_delEvent .content .btn {
+  margin-top: 60px;
+}
+.confirm_delEvent .content .btn>button {
+  width: 120px;
+  height: 36px;
+  border-radius: 15px;
+  font-size: 14px;
+  outline: none;
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+  color: #666;
+  cursor: pointer;
+}
+
+.confirm_delEvent .content .btn>button:last-of-type {
+  margin-left: 20px;
+}
+.confirm_delEvent .content .close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+}
+.confirm_delEvent .content .btn>button:hover {
+  background: #00b2e6 !important;
+  border: 1px solid #00b2e6 !important;
+  color: #fff;
+}
+.yqms_sidebar_box_red .confirm_delEvent .content .btn>button:hover {
+  background-color: #dc150e ;
+  border: 1px solid #dc150e;
+  color: #fff;
+}

@@ -1,0 +1,121 @@
+.commom_dialog_box {
+	position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1200;
+    text-align: center;
+}
+
+.commom_dialog_box::before {
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.commom_dialog_content {
+	min-width: 280px;
+    min-height: 160px;
+    background: #ffffff;
+    border-radius: 2px;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.commom_dialog_title_box {
+	width: 100%;
+	height: auto;
+    position: relative;
+}
+.commom_dialog_title {
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 20px;
+    position: relative;
+}
+.commom_dialog_close {
+	position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 28px;
+    color: #acacac;
+    width: 24px;
+    height: 24px;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    background: #F6F6F6;
+    border-radius: 50%;
+}
+.commom_dialog_close:before,
+.commom_dialog_close:after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 2px; 
+    background: #999999;
+    position: absolute;
+    right: 5px;
+    top: 11px;
+}
+.commom_dialog_close:before {
+    transform: rotate(-135deg);
+}
+.commom_dialog_close:after {
+    transform: rotate(-45deg);
+}
+.commom_content {
+ 	color: #333;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.commom_btns_box {
+	text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.commom_btn {
+	display: inline-block;
+	width: 96px;
+    height: 32px;
+    line-height: 30px;
+    color: #333;
+    font-size: 14px;
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 10px 0 20px;
+}
+.save_btn {
+	color: #fff;
+    background: #5090F1;
+    border: 1px solid #5090F1;
+}
+.save_btn:hover {
+    background: #4781D8;
+}
+.cancle_btn {
+	color: #666;
+    background: #fff;
+    border: 1px solid #DADCDF;
+    margin-left: 20px;
+}
+.cancle_btn:hover {
+    color: #5090F1;
+    background: #EDF3FD;
+    border: 1px solid #EDF3FD;
+}

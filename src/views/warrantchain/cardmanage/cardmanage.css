@@ -1,0 +1,196 @@
+.card_manage_content .visible-hidden {
+	display:none!important;
+}
+.card_manage_content {
+	min-height: calc(100vh - 210px);
+	background: #fff;
+}
+.card_manage_content .color-999 {
+	color: #999999;
+}
+.card_manage_content .title {
+	font-size: 16px;
+	padding-top: 55px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+.card_manage_content .line {
+	height: 1px;
+	background-color: #dddddd;
+	margin-bottom: 30px;
+}
+.card_manage_content .progress_box {
+	margin-left: 22px;
+}
+.card_manage_content .content_center {
+	width: 1200px;
+	margin: 0 auto;
+	position: relative;
+}
+.card_manage_content .list_content {
+	width: 1160px;
+	margin: 0 auto;
+}
+.card_manage_content .el-progress {
+	width: 115px;
+	height: 8px;
+    margin-top: 6px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.card_manage_content .el-input__inner {
+	margin-bottom: 20px;
+	height: 32px;
+	border-radius: 2px;
+}
+.card_manage_content .el-textarea__inner {
+	margin-bottom: 20px;
+}
+.card_manage_content .time_box {
+	margin-top: 30px;
+}
+.card_manage_content .time_box .time_text{
+	margin-right: 14px;
+}
+.card_manage_content .list_content_box{
+	position: relative;
+	min-height: 400px;
+	margin-bottom: 30px;
+}
+.card_manage_content .content_center .button_size {
+	position: absolute;
+	top: 120px;
+	right: 20px;
+	width: 100px;
+	height: 36px;
+	border-radius: 3px;
+}
+.card_manage_content .content_center .bg-purple {
+	height: 65px;
+	text-align: center;
+}
+.card_manage_content .content_center .bg-purple .el-col {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content:center;
+	justify-content:center;
+	-moz-box-pack:center;
+	-webkit--moz-box-pack:center;
+	box-pack:center;
+    height: 100%;
+}
+.card_manage_content .content_center .bg-purple .word-bk {
+	width: fit-content;
+    margin: 0 auto;
+    text-align: left;
+	word-break: break-all;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:2;
+	overflow:hidden;
+	cursor: default;
+}
+.card_manage_content .content_center .bg-purple-dark {
+    background: #F6FAFD;
+ }
+ .card_manage_content .edit_box {
+	flex-direction: row-reverse;
+ }
+ .card_manage_content .edit_box .edit_card {
+ 	height: 65px;
+ 	margin-left: 10px;
+ 	margin-right: 10px;
+ 	cursor: pointer;
+ 	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content:center;
+	justify-content:center;
+	-moz-box-pack:center;
+	-webkit--moz-box-pack:center;
+	box-pack:center;
+	align-items:center;
+	-webkit-align-items:center;
+	box-align:center;
+	-moz-box-align:center;
+	-webkit-box-align:center;
+ }
+.card_manage_content .edit_box .edit_card .edit_img {
+	margin-bottom: 9px;
+	background-image: url('~@ibg/warrantchain/editicon.png');
+ }
+.card_manage_content .edit_box .edit_card .edit_img_1 {
+	width: 23px;
+	height: 20px;
+}
+.card_manage_content .edit_box .edit_card .edit_img_2 {
+	width: 22px;
+	height: 22px;
+	background-position: 126px 0px;
+}
+.card_manage_content .edit_box .edit_card .edit_img_3 {
+	width: 19px;
+	height: 22px;
+	background-position: 252px 0px;
+}
+.card_manage_content .edit_box .edit_card .edit_img_4 {
+	width: 18px;
+	height: 22px;
+	background-position: 197px 0;
+}
+.card_manage_content .edit_box .edit_card .edit_img_hover {
+	background-position-y:22px;
+}
+.card_manage_content .edit_box .edit_card .edit_text {
+	line-height: 12px;
+}
+.card_manage_content .fl_desp {
+	background-color: #EDF3FD;
+	color: #5890EE;
+	font-size: 12px;
+    border-radius: 2px;
+    padding: 4px 20px;
+    line-height: 18px;
+}
+.card_manage_content .el-dialog__body {
+	padding-left: 80px;
+	padding-right: 80px;
+}
+.card_manage_content .dialog-footer {
+	text-align: center;
+}
+.card_manage_content .el-button {
+	width:96px;
+	height:32px;
+	line-height: 0;
+	border-radius:2px;
+}
+.card_manage_content .detail_table {
+	width: 90%;
+	margin: 0 auto;
+}
+.card_manage_content .detail_table tr>td{
+	border: 1px solid #DADCDF;
+	padding: 6px 0;
+}
+.card_manage_content .detail_table tr .detail_table_key{
+	width: 84px;
+	background-color: #EDF3FD;
+	text-align: center;
+}
+.card_manage_content .detail_table tr .detail_table_value{
+	padding-left: 10px;
+}
+.card_manage_content .cusm_pagination {
+	text-align: right;
+	padding-bottom: 20px;
+}

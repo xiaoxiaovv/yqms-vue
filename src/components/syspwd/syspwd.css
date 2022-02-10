@@ -1,0 +1,94 @@
+.syspwd_dialog {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+}
+.syspwd_dialog_content {
+	width: 452px;
+	min-height: 256px;
+	background: #56b5ef;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+}
+
+.syspwd_dialog_title {
+	position: relative;
+	color: #fff;
+    text-indent: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+}
+.syspwd_dialog_close{
+	position: absolute;
+	top: 6px;
+	right: 12px;
+	display: inline-block;
+	width: 19px;
+    height: 19px;
+	background: var(--bg-syspwd_bg) no-repeat -72px 1px;
+}
+.syspwd_dialog_close:hover {
+	background: var(--bg-syspwd_bg) no-repeat -71px -19px;
+}
+.syspwd_content_box {
+	padding: 10px 10px 20px 10px;
+	background: #fff;
+	margin: 0 5px 5px;
+	height: 120px;
+	height: 191px;
+}
+.syspwd_submit_box {
+	padding: 40px 0 30px 0;
+	background: #f0f0f0;
+	height: auto;
+    font-size: 0px;
+    height: 178px;
+    box-sizing: border-box;
+}
+.syspwd_txt {
+    text-align: center;
+    font-size: 16px;
+    height: 18px;
+}
+.syspwd_input_box {
+	margin: 10px 0;
+}
+.syspwd_input_box input {
+	font-size: 16px;
+	width: 173px;
+	height: 26px;
+    margin-left: 128px;
+}
+.syspwd_err {
+	display: inline-block;
+	color: #d91023;
+	margin-left: 26px;
+	font-size: 16px;
+}
+.syspwd_submit {
+	display: inline-block;
+	width: 80px;
+    height: 30px;
+    border: none;
+    font-size: 13px;
+    background: var(--bg-syspwd_btn_bg) no-repeat;
+    margin-left: 171px;
+    cursor: pointer;
+}
+/*黑板*/
+.black_syspwd_dialog{position: fixed;top: 0;bottom: 0;left: 0;right: 0;background: rgba(0, 0, 0, 0.5);z-index: 9999;}
+.black_syspwd_dialog .syspwd_dialog_title{height: 49px;border-bottom: 1px solid #e3e3e3;color: #3d93d1;line-height: 49px;}
+.black_syspwd_dialog .syspwd_dialog_title .syspwd_dialog_close{background: url("../../assets/images/home/black/wangcan_guanbi.png") center center no-repeat;width: 22px;height: 22px;top:15px;cursor: pointer;}
+.black_syspwd_dialog .syspwd_dialog_content{background-color: #fff;}
+.black_syspwd_dialog .syspwd_submit_box{background-color: #fff;}
+

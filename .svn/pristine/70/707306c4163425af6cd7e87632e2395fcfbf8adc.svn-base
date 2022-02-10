@@ -1,0 +1,10 @@
+.wrap {
+	width: 100%;
+    min-width: 1200px;
+    background-color: var(--bg-wrap);
+}
+
+.wrap_unicom {
+    background:var(--bg-top) center top no-repeat,var(--bg-bottom) center bottom no-repeat;
+    background-size: 100% auto,100% auto;
+}

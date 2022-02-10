@@ -1,0 +1,155 @@
+.wrap {
+    background-color: var(--bg-wrap);
+}
+.judgment_center {
+	background: var(--bg-content);
+}
+.judgment_apply_box {
+	width: 100%;
+    background: var(--c-white);
+    padding: 0px 0 0;
+}
+.apply_top {
+    width: 100%;
+    background-color: #21263A;
+}
+.apply_top > div{
+    background: url("../../../assets/images/judgment/classic/sq_ico_top.png") no-repeat top left;
+    max-width: 1600px;
+    height: 440px;
+    margin: 0 auto;
+    background-size: 100%;
+}
+.apply_top > div h1{
+    color:#6FA6F9;
+    font-size: 24px;
+    display: block;
+    margin-left: 12.5%;
+    padding-top: 120px;
+}
+.apply_top > div p{
+    display: block;
+    width: 460px;
+    margin-left: 12.5%;
+    color:#fff;
+    line-height: 26px;
+    margin-top: 40px;
+}
+.apply_top > div a{
+    margin-left: 12.5%;
+    margin-top: 30px;
+    display: block;
+    width: 150px;
+    height: 42px;
+    line-height: 42px;
+    color:#fff;
+    text-align: center;
+    background-color: #5090f1;
+    border-radius: 5px;
+}
+.apply_bottom{
+    width: 100%;
+    background-color: #000712;
+}
+.apply_bottom >div{
+    background: url("../../../assets/images/judgment/classic/sq_ico_bottom.png") no-repeat top left;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 717px;
+    position: relative;
+    background-size: 100%;
+}
+.apply_bottom >div a{
+    display: block;
+    width: 150px;
+    height: 42px;
+    line-height: 42px;
+    color:#fff;
+    text-align: center;
+    background-color: #5090f1;
+    border-radius: 5px;
+    position: absolute;
+    bottom:36px;
+    left:50%;
+    margin-left: -75px;
+}
+
+.apply_centre {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-bottom: 90px;
+}
+
+.apply_centre > p {
+    text-align: center;
+    padding: 60px 0;
+    color: #333;
+    font-family: 黑体;
+    font-size: 24px;
+}
+
+.apply_centre > ul {
+    display: block;
+    width: 100%;
+    margin: 18px auto 0;
+}
+
+.apply_centre > ul li {
+    width: 15%;
+    float: left;
+    text-align: center;
+    margin: 0 5%;
+}
+
+.apply_centre > ul li i {
+    display: block;
+}
+
+.apply_centre > ul li p.p1 {
+    font-size: 18px;
+    color: #333333;
+    padding: 50px 0 30px;
+}
+
+.apply_centre > ul li p.p2 {
+    font-size: 14px;
+    color: #888;
+    text-align: left;
+}
+
+.apply_centre > ul li:nth-child(1) i {
+    width: 50px;
+    height: 48px;
+    background: url("../../../assets/images/judgment/classic/y_ico1.svg") no-repeat center;
+    margin: 0 auto;
+}
+
+.apply_centre > ul li:nth-child(2) i {
+    width: 48px;
+    height: 48px;
+    background: url("../../../assets/images/judgment/classic/y_ico2.svg") no-repeat center;
+    margin: 0 auto;
+}
+
+.apply_centre > ul li:nth-child(3) i {
+    width: 48px;
+    height: 48px;
+    background: url("../../../assets/images/judgment/classic/y_ico3.svg") no-repeat center;
+    margin: 0 auto;
+}
+
+.apply_centre > ul li:nth-child(4) i {
+    width: 50px;
+    height: 48px;
+    background: url("../../../assets/images/judgment/classic/y_ico4.svg") no-repeat center;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:1480px){
+  .apply_bottom >div{height: 672px;}
+  .apply_top > div{height: 413px;}
+}
+@media screen and (max-width:1380px){
+  .apply_bottom >div{height: 618px;}
+} 

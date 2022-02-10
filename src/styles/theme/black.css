@@ -1,0 +1,155 @@
+:root {
+	/*header部分*/
+	--bg-head-icon: url('~@ibg/home/classic/head_icon.png');
+	--bg-head-icon-black: url('~@ibg/home/black/head_icon_black.png');
+	--bg-sa: url('~@ibg/home/classic/switch_account.png');
+	--bg-sa-h: url('~@ibg/home/classic/switch_account_hover.png');
+	--bg-head-foot-icon: url('~@ibg/home/classic/head_foot_icon.png');
+	--bg-sa-h: url('~@ibg/home/classic/switch_account_hover.png');
+	--bg-trial: url('~@ibg/home/classic/trial_bg.png');
+	--bg-top-bar: url('~@ibg/home/classic/top_bar.png');
+	--bg-close-old: url('~@ibg/home/classic/dialog_close_old.png');
+	--bg-sidebar: url('~@ibg/home/classic/side_bar.png');
+	--bg-qrcode: url('~@ibg/home/classic/qr_code.png');
+	--bg-load: url('~@ibg/home/classic/loading-icon.gif');
+	--bg-centericons: url('~@ibg/home/classic/center_icons.png');
+	--bg-set_suc: url('~@ibg/home/classic/set_suc.png');
+	--bg-top_bg: url('~@ibg/home/classic/top_bg.png');
+	--bg-close: url('~@ibg/home/classic/close.png');
+	--bg-time_bg: url('~@ibg/home/classic/time_bg.png');
+	--bg-syspwd_bg: url('~@ibg/home/classic/icos3.png');
+    --bg-syspwd_btn_bg: url('~@ibg/home/classic/syspwd_btn.png');
+	--bg-first_bg: url('~@ibg/browse/classic/first.png');
+	--bg-detonating_point_bg: url('~@ibg/browse/classic/detonating_point.png');
+	--bg-arrow_right_bg: url('~@ibg/browse/classic/arrow_right.png');
+	--bg-noforward_bg: url('~@ibg/browse/classic/noforward.png');
+	--bg-view_task: url('~@ibg/viewTask.png');
+	/*--bg-mslogo: url('~@ibg/home/classic/mslogo.png');*/
+	--bg-judgment_arrow:url('~@ibg/judgment/classic/icon_dow.png');
+	--bg-judgment_markicon:url('~@ibg/judgment/classic/eventdg.png');
+	--bg-judgment_pagesj:url('~@ibg/judgment/classic/pagesj.png');
+	--bg-judgment_warning_icon:url('~@ibg/judgment/classic/warning_icon.png');
+	--bg-judgment_level_01:url('~@ibg/judgment/classic/level_01.svg');
+	--bg-judgment_level_02:url('~@ibg/judgment/classic/level_02.svg');
+	--bg-judgment_level_03:url('~@ibg/judgment/classic/level_03.svg');
+	--bg-judgment_level_04:url('~@ibg/judgment/classic/level_04.svg');
+	--bg-judgment_infozt:url('~@ibg/judgment/classic/infozt.png');
+	--bg-judgment_ops_icon:url('~@ibg/judgment/classic/ops_icon.png');
+	--bg-judgment_default_icon:url('~@ibg/judgment/classic/default_icon.png');
+	--bg-judgment_start_icon:url('~@ibg/judgment/classic/start_icon.svg');
+	--bg-judgment_start_icon_hover:url('~@ibg/judgment/classic/start_icon_hover.svg');
+	--bg-nodata:url('~@ibg/nodata.png');
+	--bg-order-icon:url('~@ibg//home/black/order_icon.png');
+	--c-nodata: #5ca0eb;
+	--c-blue: #4d96d8;
+	--c-white: #fff;
+	--c-red: red;
+	--c-0: #000;
+	--c-191919: #191919;
+	--c-2: #222;
+	--c-23: #232323;
+	--c-3: #333;
+	--c-5: #555;
+	--c-46: #464646;
+	--c-6: #666;
+	--c-8: #888;
+	--c-6F: #6F6F6F;
+	--c-8: #888;
+	--c-9: #999;
+	--c-e: #eee;
+    --c-4f:#fff;
+	--c-e0: #e0e0e0;
+	--c-e3: #e3e3e3;
+	--c-e5: #e5e5e5;
+	--c-e9: #e9e9e9;
+	--c-b6: #6b6b6b;
+	--c-c6: #c6c6c6;
+	--c-d: #dddddd;
+	--c-d2: #d2d2d2;
+	--c-d6: #d6d6d6;
+	--c-d8: #d8d8d8;
+	--c-db: #dbdbdb;
+	--c-f1: #f1f1f1;
+	--c-fc6470: #fc6470;
+	--c-00b7ee: #00b7ee;
+	--c-0394d3: #0394d3;
+	--c-1e8bc1: #1e8bc1;
+	--c-1F96D2: #1F96D2;
+	--c-1fc0f0: #1fc0f0;
+	--c-2b7cd5: #2b7cd5;
+	--c-323333: #323333;
+	--c-38a9e1: #38a9e1;
+	--c-421616: #421616;
+	--c-44b0e6: #44b0e6;
+	--c-58aada: #58aada;
+	--c-5b9fea: #5b9fea;
+  --c-cccccc: #cccccc;
+	--bg-0087b4: #0087b4;
+	--bg-2699bf: #2699bf;
+	--bg-f5f6f7: #f5f6f7;
+	--bg-f2: #f2f2f2;
+	--bg-49b3e8: #49b3e8;
+	--bg-F6FAFD: #F6FAFD;
+	--bg-rgb1: rgba(0, 0, 0, 0.1);
+	--bg-rgb2: rgba(0, 0, 0, 0.2);
+	--bg-rgb4: rgba(0, 0, 0, 0.4);
+	--bg-rgb6: rgba(0, 0, 0, 0.6);
+	--bg-rgb7: rgba(0, 0, 0, 0.7);
+	--bg-rgb8: rgba(0, 0, 0, 0.8);
+	--bg-rgb2551: rgba(255, 255, 255, 0.1);
+	--bg-5b9fea: #5b9fea;
+	--bg-f5f7fa: #f5f7fa;
+	--border-e9eaeb: #e9eaeb;
+	--border-5b9fea: #5b9fea;
+	--border-33a7ff: #33a7ff;
+	--border-eceff8: #eceff8;
+	--border-E9EFF4: #E9EFF4;
+	--border-f68623: #f68623;
+	--border-F3C718: #F3C718;
+	--border-ED3E4A: #ED3E4A;
+	/*
+	 *以下变量名字是固定的，不要轻易改动
+	 *网站换肤设置
+	 *  --bg-wrap：页面的背景底色
+	 *  --bg-header：nav背景色
+	 *  --bg-header-shadow：head的底部阴影色
+	 *  --bg-nav：nav选中背景色
+	 *  --bg-content：中间内容区域背景色
+	 *	--bg-footer：底部背景色
+	 */
+	--bg-wrap: #222228;
+	--bg-header: #2E2F34;
+	--bg-header-shadow: transparent;
+	--bg-nav: rgba(255, 255, 255, 0.1);
+	--bg-content: #222228;
+	--bg-footer: #282A31;
+	/*首页参数设置开始*/
+	--home-title-box: #3E404A;
+	--home-title: var(--c-white);
+	--home-title-left: 10px;
+	--home-event-margin: 24px 0 0 15px;
+	--home-event-padding: 25px 16px;
+	--home-event-title: var(--c-white);
+	--home-event-shadow: #3E404A;
+	--home-center-padding: 24px;
+	--home-del: 6px;
+	--home-header-compile: rgba(0, 0, 0, 0.85);
+	--home-header-compile-shadow: rgba(0, 0, 0, 0.8);
+	--home-model-top: 24px 12px 0;
+	--home-model-width: 72px;
+	--home-push-padding: 0 15px 0 10px;
+	/*首页参数设置结束*/
+	/*一键溯源参数设置开始*/
+	--source-model-bg: var(--bg-wrap);
+	--source-model-margin:  24px auto;
+	--source-model-padding:  30px;
+	/*一键溯源参数设置结束*/
+	/*舆情研判参数设置开始*/
+	--judgment-model-margin: 24px auto;
+	--judgment-model-padding: 0px;
+	--judement-list-margin: 0 10px 20px 10px;
+	--judgment_model-height: 676px;
+	/*舆情研判参数设置结束*/
+    --newNavIcotop:0px;
+    --newNavIcoright:0px;
+}

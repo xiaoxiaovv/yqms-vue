@@ -1,0 +1,307 @@
+.clearfix_judgment:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.clearfix_judgment {
+  /*overflow: auto;*/
+  /* For IE 6/7 (trigger hasLayout) */
+  zoom: 1; 
+}
+.sx_wrap {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-bottom: 1px solid #dbdbdb;
+  background: #fff;
+  position: relative;
+}
+.sx_content {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.sx_content>ul {
+  overflow: hidden;
+  width: 100%;
+  float: left;
+}
+.sx_content>ul li {
+  float: left;
+  height: 34px;
+  position: relative;
+  margin-top: 5px;
+}
+.sx_content>ul li a {
+  display: block;
+  height: 34px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #fff;
+  position: relative;
+  border-image: initial;
+  padding: 8px 0 8px 15px;
+  color: #333;
+}
+.sx_content>ul li a.hover {
+  border: 1px solid #dfdfdf;
+  border-bottom: 0;
+  z-index: 12;
+}
+.sx_content>ul li p {
+  float: left;
+}
+.sx_content>ul li p:first-of-type {
+    width: 72px;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 700;
+}
+.sx_content>ul li p:last-of-type {
+  font-size: 14px;
+  color: #38aae1;
+  text-align: center;
+}
+.sx_content>ul li p em, i {
+  font-style: normal;
+}
+.sx_content>ul li p:last-of-type i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--bg-judgment_arrow) 0 1px no-repeat;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-left: 5px;
+
+}
+.sx_content>ul li span {
+  float: left;
+  color: #dadada;
+  margin-left: 18px;
+}
+.sx_content>ul li a.hover span {
+  color: #fff;
+}
+.sx_true {
+  width: 100px;
+  float: right;
+  margin-right: 2px;
+}
+.sx_true a {
+    width: 100px;
+    display: block;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    color: #626262;
+    border: 1px solid #c9c9c9;
+    border-radius: 6px;
+    font-size: 12px;
+    background-color: #f6f6f6;
+}
+/*弹窗的选项*/
+.sx_pub {
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+  position: absolute;
+  z-index: 11;
+  top: 90px;
+  left: 0;
+  -moz-box-shadow: 0 0 8px #dfdfdf;
+  -webkit-box-shadow: 0 0 8px #dfdfdf;
+  box-shadow: 0 0 8px #dfdfdf;
+  padding: 10px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.sx_pub ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 88%;
+  margin-left: 20px;
+  display: block;
+  float: left;
+  overflow: hidden;
+}
+.sx_pub ul li {
+  float: left;
+}
+.sx_pub ul li span {
+  height: 25px;
+  padding: 0 10px;
+  color: #666;
+  cursor: pointer;
+}
+.sx_pub ul li span.el-range-separator{
+  padding: 0;
+  height: auto;
+}
+.sx_pub ul li span.hover {
+  color: #38a9e1;
+}
+.timejs_input {
+  margin-top: 16px;
+}
+.sx_pub ul li .laydate-icon {
+  width: 172px;
+  height: 28px;
+  background: #F7F7F7;
+  border: 1px solid #dbdbdb;
+}
+.sx_pub ul li span.timedao {
+  display: inline-block;
+  line-height: 40px;
+  margin: 0;
+  color: #666;
+}
+.sx_pub ul li button {
+  width: 48px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  background: #38aae1;
+  font-size: 12px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-left: 12px;
+}
+.sx_pub input[type=checkbox] {
+  display: none;
+}
+.mult_pub input[type=checkbox] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  outline: 0;
+  border: 1px solid #666;
+  vertical-align: middle;
+}
+.sx_pub .btn_wrap {
+  display: none;
+  width: 100%;
+  height: 36px;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 16px;
+}
+.mult_pub .btn_wrap {
+  display: inline-block;
+}
+.sx_pub .btn_wrap .btn {
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 5px;
+  width: 48px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #38a9e1;
+  background-color: #38a9e1;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.sx_pub .btn_wrap .btn:last-of-type {
+  border-color: #8e9095;
+  background-color: #8e9095;
+  color: #fff;
+}
+.mult_pub ul li span {
+  padding: 0 20px 0 0;
+  vertical-align: middle;
+}
+.info_sourceregion>ul>li:first-of-type {
+  line-height: 28px;
+  margin-right: 20px;
+}
+.info_sourceregion>ul>li select {
+  width: 110px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #999;
+  border: 1px solid #999;
+  margin-right: 20px;
+}
+.info_sourceregion>ul>li:last-of-type button {
+  width: 48px;
+  height: 24px;
+  line-height: 24px;
+  background: #38aae1;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+}
+/*精准筛选*/
+.sx_jz ul {
+  padding: 12px 22px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 0;
+  width: 100%;
+  margin-left: 0;
+  float: none;
+}
+.sx_jz ul li {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.sx_jz ul li i {
+  float: left;
+  width: 16px;
+  height: 16px;
+  /*background: url('../assets/browse/wenhao_icon.png') no-repeat;*/
+}
+.sx_jz ul li em {
+  float: left;
+  font-size: 14px;
+  color: #333;
+  margin: 0 35px 0 10px;
+}
+.sx_jz ul li p {
+  float: left;
+  font-size: 14px;
+  color: #666;
+}
+.sx_jz ul li p span.hover {
+  color: #38aae1;
+}
+.sx_jz ul li input {
+  width: 60px;
+  border: 1px solid #666;
+}
+.sx_jz ul li:last-of-type {
+  margin-bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.all_btn {
+  width: 58px;
+  height: 22px;
+  border: 1px solid #AEAEAE;
+  border-radius: 22px;
+  -moz-border-radius: 22px;
+  -webkit-border-radius: 22px;
+  text-align: center;
+  line-height: 22px;
+  cursor: pointer;
+  float: right;
+  color: #6C6C6C;
+  margin-right: 20px
+}

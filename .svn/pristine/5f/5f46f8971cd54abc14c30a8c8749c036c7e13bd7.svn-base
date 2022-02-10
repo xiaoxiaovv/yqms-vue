@@ -1,0 +1,16 @@
+.publice_con {
+
+}
+.redtext_wrap {
+  padding: 0px 0 0 0;
+  text-align: center;
+}
+.redtext_wrap .redtext_con {
+	color: var(--c-3);
+	font-size: 14px;
+}
+.redtext_wrap .redtext_con_black {
+	color: #e1cc89;
+ 	position: relative;
+  top: 10px;
+}

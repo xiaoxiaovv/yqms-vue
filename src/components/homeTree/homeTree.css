@@ -1,0 +1,40 @@
+.icon_file {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(218,220,223,1);
+	border-radius: 14px;
+	position: relative;
+	top: 3px;
+	margin-right: 3px;
+}
+.icon_file_choose {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background:rgba(255,255,255,1);
+	border:4px solid #5090F1;
+	border-radius: 8px;
+	position: relative;
+	top: 3px;
+	margin-right: 3px;
+}
+.el-tree-label {
+	font-size: 14px;
+	color: var(--c-46);
+	height: 30px;
+	line-height: 30px;
+	margin: 10px 0;
+}
+
+.el-tree-node__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 47px;
+    cursor: pointer;
+}

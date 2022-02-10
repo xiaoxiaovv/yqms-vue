@@ -1,0 +1,852 @@
+<template>
+	<div>
+		<div class="rss_Wary_tips" v-if="showPops">
+			<div class="pops_newtask">
+				<div class="task_icon" @click="showPops=false"></div>
+				<div class="pops_title">提示</div>
+				<div class="pops_info">
+					 疫情订阅专题正在生成中 <br />
+					请稍后在“舆情浏览”专题列表查看
+				</div>
+				<button  class="button"  @click="showPops=false">稍后查看</button>
+			</div>
+		</div>
+		<div class="rss_Wary"  v-show="isShowWary">
+			<div class="title">疫情专题订阅 <i @click="closeRssWary"></i></div>
+			<div class="rss_pub rss_pub1">
+					<p class="rss_tit">专题名称</p>
+					<label :class="item.isDisabled ? 'disabledCss' :''" v-for="(item,i) in rssSpecialInfo" :key='i'>
+						<span><input type="checkbox" v-model="specialName" :value="item.subscribeId" v-if="item.isDisabled" disabled>
+						<input type="checkbox" v-model="specialName" :value="item.subscribeId" v-else > {{item.name}} 
+						</span> 
+						<span class="y_rss" v-if="item.isDisabled">已订阅</span>
+						<span v-else>{{item.description}} </span>
+					</label> 
+			</div>
+			<div class="rss_pub rss_pub2" v-if="regionalInfo.length > 0">
+					<p class="rss_tit">选择地域范围</p>
+					<label :class="item.isDisabled ? 'disabledCss' :''" v-for="(item,i) in regionalInfo" :key="i">
+						<input type="checkbox" v-model="specialScope" :value="item.id" v-if='item.isDisabled' disabled > 
+						<input type="checkbox" v-model="specialScope" :value="item.id" v-else > 
+						{{item.name}} <em class="y_rss" v-if="item.isDisabled">已订阅</em>
+					</label>
+			</div> 
+			<div class="rss_footer">
+				<span>注：订阅专题将会占用账号数据量</span>
+				<button @click="rssSpecial">订阅专题</button>
+			</div>
+		</div> 
+		<div class="yqms_sidebar_box" :class="(formalCustomer || trialCustomer || openTrial || remainTime || expired || disableBtn || remainTrialTime || expiredTrial)?'yqms_sidebar_box_zindex':''">
+		<!--蓝板黑版-->
+        <div v-if="$store.state.kuTempLate != 'UnicomProject' && ($store.state.kuTempLateType == 0 || $store.state.kuTempLateType == 1 || $store.state.kuTempLateType == 8)"> 
+					<!-- 专题订阅 -->
+			    <div class="new_topic_box border_box rss_special_box" :class="isShowWary ? 'hover' :''" v-if="isShwoRssButton">
+						<i class="hot"  v-show="!isShowWary"></i> 
+				   	<a class="rss_special" href="javascript:void(0)" @click.stop="showRssWary"></a> 
+					</div> 
+            <div class="new_topic_box border_box" @click="addTopic">
+                <a class="new_topic" href="javascript:void(0);"></a>
+                <!-- <a class="new_topic_txt" href="javascript:void(0);">新建</br>专题</a> -->
+            </div>
+			<div class="judged_box border_box" @click.stop="openJudged" v-if="!($store.state.agentid > 0)">
+                <div class="firefly" :class="($store.state.ZHXGUSERID == '68741' || $store.state.ZHXGUSERID == '36261') ? 'yp' : 'tsgz'"></div>
+                <div class="judged_box_hover" :class="($store.state.ZHXGUSERID == '68741' || $store.state.ZHXGUSERID == '36261') ? '' : 'judged_box_hover_tsgz'">
+                    <div class="judged_box_top">
+                        <p v-if="$store.state.ZHXGUSERID == '68741' || $store.state.ZHXGUSERID == '36261'">试用智慧研判</p>
+						<p v-else>使用北斗舆情态势感知</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+			<!-- 绑定二维码 -->
+			<div class="wx_code_box border_box" @mouseenter="getWXImgUrl()" v-if="!($store.state.agentid > 0)">
+				<div class="wx_code"></div>
+				<div class="wx_code_hover">
+					<div class="wx_code_top">
+						<img :class="[isBig ? 'big' : '']" :src="imgUrl"/>
+						<p>扫描二维码</p>
+						<p>立享推送服务</p>
+					</div>
+					<div class="triangle_border_right">
+						<span class="arrow_right"></span>
+					</div>
+				</div>
+			</div>
+			<div class="qr_code_box border_box" v-if="!($store.state.agentid > 0)">
+                <div class="qr_code"></div>
+                <div class="qr_code_hover">
+                    <div class="qr_code_top">
+                        <img src="../../assets/images/home/classic/qr_code.png" />
+                        <p>扫描下载APP</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+            <router-link :to="{path: 'cardintroduce'}" v-if="($store.state.service_type != 1 || $store.state.apply_type != 1) && !($store.state.agentid > 0)">
+				<div class="new_topic_box border_box save_cate get_cate" >
+	                <!-- <span class="add_icon">+</span> -->
+	                <a class="new_topic_txt save_cate_txt get_cate_txt" href="javascript:void(0);"></a>
+	            </div>
+        	</router-link>
+			<router-link :to="{path: 'cardmanage'}"  v-if="($store.state.service_type == 1 && $store.state.apply_type == 1) && !($store.state.agentid > 0)">
+				<div class="new_topic_box border_box save_cate set_cate" >
+	                <!-- <span class="add_icon">+</span> -->
+	                <a class="new_topic_txt save_cate_txt set_cate_txt" href="javascript:void(0);"></a>
+	            </div>
+        	</router-link>
+            <div class="viewtask_box border_box" @click="handleTaskCenterDialog">
+				<div class="inner" v-show="executeNum > 0">
+					<div class="water"></div>
+				</div>
+                <div class="viewBtn">
+					<i id="task_isread" v-show="readNum > 0"></i>
+				</div>
+                <i id="jobNumer">{{jobNum}}</i>
+                <div class="viewtask_box_hover">
+                    <div class="viewtask_box_top">
+                        <p>任务中心</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="to_top_box border_box" @click.stop="backToTop">  <!-- v-if="btnFlag" -->
+                <div class="to_top"></div>
+            </div>
+        </div>
+		<!--绿盟云 -->
+        <div v-if="$store.state.kuTempLateType == 6">
+            <div class="new_topic_box border_box" @click="addTopic">
+                <!-- <span class="add_icon">+</span> -->
+                <a class="new_topic" href="javascript:void(0);"></a>
+            </div>
+            <div class="viewtask_box border_box" @click="handleTaskCenterDialog">
+                <div class="inner" v-show="executeNum > 0">
+					<div class="water"></div>
+				</div>
+                <div class="viewBtn">
+					<i id="task_isread" v-show="readNum > 0"></i>
+				</div>
+                <i id="jobNumer">{{jobNum}}</i>
+                <div class="viewtask_box_hover">
+                    <div class="viewtask_box_top">
+                        <p>任务中心</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- 慕亚 -->
+        <div v-if="$store.state.kuTempLateType == 4">
+			<div class="new_topic_box border_box isentia_color" @click="addTopic">
+				<!-- <span class="add_icon">+</span> -->
+				<a class="new_topic" href="javascript:void(0);"></a>
+			</div>
+			<div class="viewtask_box border_box isentia_color_hover" @click="handleTaskCenterDialog">
+				<div class="inner" v-show="executeNum > 0">
+					<div class="water"></div>
+				</div>
+                <div class="viewBtn">
+					<i id="task_isread" v-show="readNum > 0"></i>
+				</div>
+				<i id="jobNumer">{{jobNum}}</i>
+				<div class="viewtask_box_hover">
+					<div class="viewtask_box_top viewtask_box_top_isentia">
+						<p>任务中心</p>
+					</div>
+					<div class="triangle_border_right triangle_border_right_isentia">
+						<span class="arrow_right"></span>
+					</div>
+				</div>
+			</div>
+            <div class="to_top_box border_box isentia_color_hover" @click.stop="backToTop">  <!-- v-if="btnFlag" -->
+                <div class="to_top"></div>
+            </div>
+        </div>
+		<!-- 一点咨询 -->
+        <div v-if="$store.state.kuTempLateType == 5">
+			<div class="new_topic_box border_box isentia_color" @click="addTopic">
+				<!-- <span class="add_icon">+</span> -->
+				<a class="new_topic" href="javascript:void(0);"></a>
+			</div>
+			<div class="viewtask_box border_box isentia_color_hover" @click="handleTaskCenterDialog">
+				<div class="inner" v-show="executeNum > 0">
+					<div class="water"></div>
+				</div>
+                <div class="viewBtn">
+					<i id="task_isread" v-show="readNum > 0"></i>
+				</div>
+				<i id="jobNumer">{{jobNum}}</i>
+				<div class="viewtask_box_hover">
+					<div class="viewtask_box_top viewtask_box_top_isentia">
+						<p>任务中心</p>
+					</div>
+					<div class="triangle_border_right triangle_border_right_isentia">
+						<span class="arrow_right"></span>
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- 移动云 -->
+        <div v-if="$store.state.kuTempLateType == 7" class="sidebar_red">
+            <div class="new_topic_box border_box red_box" v-if="$store.state.kuVersion != 'B5'">
+                <!-- <span class="add_icon">+</span> -->
+                <a class="new_topic_txt" :href="$store.state.oldyqmsUrl + 'Index/yqClass'" target="_blank">舆情<br />课堂</a>
+            </div>
+            <div v-if="$store.state.kuVersion == 'B4' || $store.state.kuVersion == 'B3' " class="judged_box border_box judged_box_red" @click.stop="openJudged">
+                <div class="firefly"></div>
+                <div class="judged_box_hover judged_box_hover_tsgz">
+                    <div class="judged_box_top">
+                        <p>使用北斗舆情态势感知</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="viewtask_box border_box viewtask_box_red" @click="handleTaskCenterDialog">
+				<div class="inner" v-show="executeNum > 0">
+					<div class="water"></div>
+				</div>
+                <div class="viewBtn">
+					<i id="task_isread" v-show="readNum > 0"></i>
+				</div>
+                <i id="jobNumer">{{jobNum}}</i>
+                <div class="viewtask_box_hover">
+                    <div class="viewtask_box_top">
+                        <p>任务中心</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- icon自定义 -->
+			<div class="head_icon" v-show="picData && picData.length > 0">
+				<ul>
+					<li v-for="(icon,i) of picData" :key="i" v-show="icon.ishidden == '0'" :class="'icon0'+icon.id+'_box'" class="border_box">
+                        <a :href="icon.url" v-if="icon.title=='联系客服'" target="_blank" :class="'icon0'+icon.id" :title="icon.title"></a>
+                        <a :href="$store.state.oldyqmsUrl +icon.url" v-else target="_blank" :class="'icon0'+icon.id" :title="icon.title"></a>
+						<div :class="'icon0'+icon.id+'_box_hover'">
+							<div :class="'icon0'+icon.id+'_box_top'">
+								<p>{{icon.title}}</p>
+							</div>
+							<div class="triangle_border_right">
+								<span class="arrow_right"></span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+            <div class="to_top_box border_box to_top_box_red" @click.stop="backToTop">  <!-- v-if="btnFlag" -->
+                <div class="to_top"></div>
+            </div>
+        </div>
+		<!-- 数言舆情 -->
+        <div v-if="$store.state.kuTempLate == 'UnicomProject'">
+			<div class="viewtask_box border_box viewtask_box_unicom" @click="handleTaskCenterDialog">
+				<div class="inner" v-show="executeNum > 0">
+					<div class="water"></div>
+				</div>
+                <div class="viewBtn">
+					<i id="task_isread" v-show="readNum > 0"></i>
+				</div>
+                <i id="jobNumer">{{jobNum}}</i>
+                <div class="viewtask_box_hover">
+                    <div class="viewtask_box_top">
+                        <p>任务中心</p>
+                    </div>
+                    <div class="triangle_border_right">
+                        <span class="arrow_right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="to_top_box border_box border_box_unicom" @click.stop="backToTop">  <!-- v-if="btnFlag" -->
+                <div class="to_top"></div>
+            </div>
+        </div>
+        <!-- 正式客户弹窗  :showConfirmBtn="formalConfirmBtn" :showCancleBtn="formalCancleBtn" -->
+        <judged-dialog :showDialog="formalCustomer" @handleConfirm="judgedConfirm()" @handleCancel="judgedCancel" :confirmText="'进入'+judgedName">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您是{{judgedName}}的正式客户</p>
+            	<p class="big_txt">欢迎使用{{judgeNameDetail}}</p>
+            </div>
+        </judged-dialog>
+        <!-- 试用客户弹窗 -->
+        <judged-dialog :showDialog="trialCustomer" @handleConfirm="judgedConfirm()" @handleCancel="judgedCancel" :confirmText="'进入'+judgedName">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您是{{judgedName}}的试用用户</p>
+            	<p class="big_txt">欢迎使用{{judgeNameDetail}}</p>
+            </div>
+        </judged-dialog>
+        <!-- 开通试用弹窗 -->
+        <judged-dialog :showDialog="openTrial" @handleConfirm="judgedConfirm('userseven')" @handleCancel="judgedCancel" confirmText="开通试用">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您拥有{{judgedName}}{{diffDate}}天使用权限</p>
+            	<p class="big_txt">是否开通试用？</p>
+            </div>
+        </judged-dialog>
+        <!-- 试用剩余时间弹窗 -->
+        <judged-dialog :showDialog="remainTrialTime" @handleConfirm="judgedConfirm()" @handleCancel="judgedCancel" :confirmText="'进入'+judgedName">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您的{{judgedName}}试用期还剩余</p>
+            	<p class="big_txt">{{remainTimeTxt}}天</p>
+            </div>
+        </judged-dialog>
+		<!-- 正式剩余时间弹窗 -->
+        <judged-dialog :showDialog="remainTime" @handleConfirm="judgedConfirm()" @handleCancel="judgedCancel" :confirmText="'进入'+judgedName">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您的{{judgedName}}还剩余</p>
+            	<p class="big_txt">{{remainTimeTxt}}天</p>
+            </div>
+        </judged-dialog>
+        <!-- 试用到期弹窗 -->
+        <judged-dialog :showDialog="expiredTrial" @handleConfirm="judgedCancel" confirmText="确定" :showCancleBtn="expiredCancleBtn">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您的{{judgedName}}{{diffDate}}天试用期已到</p>
+            	<p class="big_txt">请购买正式版本{{judgedName}}</p>
+            </div>
+        </judged-dialog>
+		<!-- 正式到期弹窗 -->
+        <judged-dialog :showDialog="expired" @handleConfirm="judgedCancel" confirmText="确定" :showCancleBtn="expiredCancleBtn">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您的{{judgedName}}已到期，</p>
+            	<p class="big_txt">继续使用请联系客服</p>
+            </div>
+        </judged-dialog>
+		<!-- 停用弹窗 -->
+        <judged-dialog :showDialog="disableBtn" @handleConfirm="judgedCancel" confirmText="确定" :showCancleBtn="expiredCancleBtn">
+            <div class="judged_txt_box">
+            	<p class="small_txt">您的{{judgedName}}已停用，</p>
+            	<p class="big_txt">继续使用请联系客服</p>
+            </div>
+        </judged-dialog>
+		<system-password :showSysPwd="showSysPwd"></system-password>
+		<!-- 全部导出成功弹框 -->
+        <task-center-dialog  v-if="showTaskCenterDialog">
+        </task-center-dialog>
+	</div>
+</div>
+</template>
+
+<script>
+	import judgedDialog from '@/components/judgedDialog/judgedDialog.vue'
+	import systemPassword from '@/components/syspwd/syspwd.vue'
+	import VueCookies from 'vue-cookies'
+	import { checkMsLoginUserId, checkStatus,getJobNum } from '@/api/judged'
+	import { getIsSetXtPaw,getWXImgUrl,getSubscribeSubject,saveAddKeyWordSet,verifySubscirbeSubjectRate} from '@/api/home'
+	import { globalBus } from '@/helpers/util'
+	import store from '@/store'
+	import imgUrl from "@/assets/images/home/classic/loading-icon.gif"
+	import taskCenterDialog from '@/components/taskCenterDialog/taskCenterDialog.vue'
+	import {taskNum} from '@/api/taskCenter'
+
+	export default {
+		data() {
+			return {
+				//专题订阅
+				showPops:false,
+				specialName:[],   //名称
+				specialScope:[], //地域范围
+				isShowWary:false, //显示弹层 true 显示HOT false
+				isShwoRssButton:false, //显示弹层 true 显示HOT false
+				regionalInfo:[], //地域范围数据
+				rssSpecialInfo:[], //专题信息
+				// btnFlag: false //当高度大于60显示回顶部图标，小于60则隐藏
+				formalCustomer: false,   //是否显示正式客户弹窗
+				// formalConfirmBtn: true,  //是否显示正式客户确定按钮
+				// formalCancleBtn: true,   //是否显示正式客户取消按钮
+				trialCustomer: false,    //是否显示试用客户弹窗
+				// trialConfirmBtn: true,   //是否显示试用客户确定按钮
+				// trialCancleBtn: true,    //是否显示试用客户取消按钮
+				openTrial: false,        //是否显示开通试用客户弹窗
+				// openConfirmBtn: true,   //是否显示开通试用客户确定按钮
+				// openCancleBtn: true,    //是否显示开通试用客户取消按钮
+				remainTime: false,       //是否显示正式剩余时间弹窗
+				remainTrialTime: false,  //是否显示试用剩余时间弹窗
+				// remainConfirmBtn: true,       //是否显示试用剩余时间确定按钮
+				// remainCancleBtn: true,        //是否显示试用剩余时间取消按钮
+				expired: false,          //是否显示正式到期弹窗
+				expiredTrial: false,          //是否显示试用到期弹窗
+				// expiredConfirmBtn: true,     //是否显示试用到期弹窗
+				expiredCancleBtn: false,      //是否显示试用到期弹窗
+				disableBtn:  false,     //是否显示停用弹窗
+				remainTimeTxt: '',  //剩余时间提示
+				tokendata: {},
+				jobNum: '',                     //任務數量
+                timerJC: '',                      //检查导出定时器对象
+				borderBox:'',          
+				showSysPwd: false,    //是否显示系统设置密码   
+				diffDate: '',          //到期时间
+				judgedName: '',        //产品名称
+				judgeNameDetail:'',   //产品完整名称
+				imgUrl: imgUrl, // 微信二维码链接
+				isBig: false,        //是否显示大图
+				curTime: '',    //过期时间
+				readNum: 0,     //未读数
+				executeNum: 0,  //是否有任务在进行中、排队中
+				// showTaskCenterDialog: false, //是否显示任务中心弹窗
+				// showTaskCenterDialog: false
+			}
+    },
+		computed: {
+					picData() {
+							return localStorage.getItem('picData') && JSON.parse(localStorage.getItem('picData'));
+		},
+		showTaskCenterDialog(){
+			return this.$store.state.isShowCenterTaskMask                       
+		}
+
+			},
+		components: {
+				judgedDialog,
+		systemPassword,
+		taskCenterDialog,
+		},  
+		methods: { 
+			handleTaskCenterDialog() {
+				this.$store.commit('updateVal',{'name': 'isShowCenterTaskMask','value':true});
+			},
+			//新建专题
+			addTopic() {
+				var isShowsysPwd = VueCookies.get('ISPWD');
+				if(isShowsysPwd == '1'){
+					//100%跳转系统设置
+					window.open(this.$store.state.oldyqmsUrl + 'Set/special');
+				}else{
+					//验证跳转
+					getIsSetXtPaw({userid:this.$store.state.ZHXGUSERID}).then(res=>{
+						let datas = res.data.result;
+						if(datas.data == '1'){
+							this.showSysPwd = true;
+						}else{
+							window.open(this.$store.state.oldyqmsUrl + 'Set/special','_blank');
+						}
+					}).catch(err=>{
+						console.log(err);
+					});
+				}
+				// window.open(this.$store.state.oldyqmsUrl + 'Set/special');
+				//埋点统计——新建专题
+				this.$store.commit('maiDian','homepage_newtopic');
+			},
+			//返回顶部
+			backToTop() {
+				// document.documentElement.scrollTop = 0;
+				let that = this
+			    let timer = setInterval(() => {
+			        let ispeed = Math.floor(-that.scrollTop / 5)
+			        document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed;
+			        if (that.scrollTop === 0) {
+			          clearInterval(timer)
+			        }
+			    }, 18);
+			},
+			// 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+			scrollToTop() {
+				let that = this
+				let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+				that.scrollTop = scrollTop
+				// if (that.scrollTop > 60) {
+				// 	that.btnFlag = true
+				// } else {
+				// 	that.btnFlag = false
+				// }
+			},
+			//是否开通试用研判 —— 研判跳转
+			openJudged(){
+				let _this = this;
+				if(this.$store.state.ZHXGUSERID == '68741' || this.$store.state.ZHXGUSERID == '36261') {
+					checkMsLoginUserId().then(function(res) {
+						if(res.data.status == '0') {
+							let data = res.data.result.data;
+							_this.tokendata = res.data.result.data;
+							if(data.formal == 0) {
+								// 试用
+								if(data.probationCount == '0') {
+									_this.judgedCancel();
+									_this.trialCustomer = true;
+								} else {
+									if(data.expireDays<0) {
+										_this.judgedCancel();
+										_this.expiredTrial = true;
+									} else {
+										_this.remainTimeTxt = data.diffDate;
+										_this.judgedCancel();
+										_this.remainTrialTime = true;
+									}
+								}
+							} else if(data.formal == 1) {
+								// 正式
+								_this.judgedCancel();
+								_this.formalCustomer = true;
+							} else if(data.formal == 2) {
+								// 停用
+								if(data.probationCount == '0'){
+									_this.judgedCancel();
+									_this.openTrial = true;
+								}else{
+									_this.judgedCancel();
+									_this.expiredTrial = true;
+								}
+							}
+						} else {
+							_this.judgedCancel();
+							_this.openTrial = true;
+						}
+					}).catch(err => {
+						console.log(err, '请求失败！');
+					});
+				}else{
+					let data = {loginType:1,relateId:this.$store.state.ZHXGUSERID};
+					checkStatus(data).then(function(res) {
+						var res = res.data.result.data;
+						if(res.header.status == '200'){
+							//试用
+							var data = res.body;
+							if(data.userStatus == 1){
+								_this.judgedCancel();
+								_this.remainTrialTime = true;
+								_this.remainTimeTxt = data.diffDate;
+							}else if(data.userStatus == 0){
+								// 正式
+								if(data.diffDate < 30){
+									_this.judgedCancel();
+									_this.remainTime = true;
+									_this.remainTimeTxt = data.diffDate;
+								}else {
+									_this.judgedCancel();
+									_this.formalCustomer = true;
+								}
+							}
+						}else if(res.header.status == 500){
+							//去开通
+							_this.judgedCancel();
+							_this.openTrial = true;
+						}else if(res.header.status == 501){
+							//正式到期
+							_this.judgedCancel();
+							_this.expired = true;
+						}else if(res.header.status == 502){
+							//试用到期
+							_this.judgedCancel();
+							_this.expiredTrial = true;
+						}else if(res.header.status == 503){
+							//停用
+							_this.judgedCancel();
+							_this.disableBtn = true;
+						}
+					}).catch(err => {
+						console.log(err, '请求失败！');
+					});
+				}
+				
+			},
+			// 弹窗确定按钮处理 —— 进入态势感知
+			judgedConfirm(item) {
+				let _this = this;
+				if(this.$store.state.ZHXGUSERID == '68741' || this.$store.state.ZHXGUSERID == '36261') {
+					let temp = 'https://zhyp.istarshine.com';  //正式
+					let token = _this.$store.state.ACCESSTOKEN;  
+					if(item == 'userseven') {
+						enterJudged().then(function(rest) {
+							if(rest.data.result.data == 1) {
+								checkMsLoginUserId().then(function(res) {
+									if (res.data.status == '0') {
+										let data = res.data.result.data;
+										let tokendata = data;
+											window.open(temp+'/screen/index.html#/bigscreen?accesstoken='+token+'&expdate='+tokendata.expdate+'&expireDays='+tokendata.expireDays+'&formal='+tokendata.formal+'&kuId='+tokendata.kuId+'&kuLid='+tokendata.kuLid+'&kuName='+tokendata.kuName+'&md5='+tokendata.md5);
+									}	
+								}).catch(err => {
+									console.log(err, '请求失败！');
+								});
+							}
+						}).catch(err => {
+							console.log(err, '请求失败！');
+						});
+					} else {
+						window.open(temp+'/screen/index.html#/bigscreen?accesstoken='+token+'&expdate='+_this.tokendata.expdate+'&expireDays='+_this.tokendata.expireDays+'&formal='+_this.tokendata.formal+'&kuId='+_this.tokendata.kuId+'&kuLid='+_this.tokendata.kuLid+'&kuName='+_this.tokendata.kuName+'&md5='+_this.tokendata.md5);
+					}
+				}else {
+					let temp = 'https://tsgz.istarshine.com';  //正式
+					let token = _this.$store.state.ACCESSTOKEN; 
+						window.open(temp+'/index.html#/yqmslogin?token='+token+'&relateId='+_this.$store.state.ZHXGUSERID+'&loginName='+_this.$store.state.username);
+				}
+				_this.judgedCancel();
+			},
+			// 弹窗取消按钮处理 —— 关闭弹窗
+			judgedCancel() {
+				this.formalCustomer = false;
+				this.trialCustomer = false;
+				this.openTrial = false;
+				this.remainTime = false;
+				this.expired = false;
+				this.disableBtn = false;
+				this.remainTrialTime = false;
+				this.expiredTrial = false;
+			},
+			//获取检测任务数
+			//检测任务数量
+			taskNum() {
+				let _this = this;
+				let params = {
+                    userId: _this.$store.state.ZHXGUSERID,
+                }
+				taskNum(params).then(res=>{
+                    if(res && res.data.code == 200) {
+						_this.readNum = res.data.data.readNum;
+						_this.executeNum = res.data.data.executeNum;
+						// _this.readNum = 1;
+						// _this.executeNum = 1;
+                    }else {
+						return false;
+					}
+                }).catch(err=>{
+                    console.log(err);
+                });
+			},
+			//定时器任务
+			intervalTask: function() {
+				let _this = this;
+                _this.timerJC = setInterval(function(){
+					_this.taskNum();
+				},60000);
+			},
+			//侧边栏显示微信二维码
+			getWXImgUrl: function() {
+				let _this = this;
+				let userid = this.$store.state.ZHXGUSERID;
+				if(window.localStorage.getItem(userid)){
+					let data = localStorage.getItem(userid)
+					let dataObj = JSON.parse(data);
+					if (new Date().getTime() - dataObj.time > 3600000) {
+						_this.isBig = false;
+						_this.imgUrl = imgUrl;
+						localStorage.removeItem(userid);
+						this.getWXCode(userid);
+					}else{
+						_this.isBig = true;
+						_this.imgUrl = dataObj.url;
+					}
+				}else {
+					_this.isBig = false;
+					_this.imgUrl = imgUrl;
+					this.getWXCode(userid);
+				}
+			},
+			getWXCode: function(userid){
+				let _this = this;
+				let curTime = new Date().getTime();
+				getWXImgUrl({'userid':userid}).then(function(res) {
+					let url = res.data.result.data;
+					_this.isBig = true;
+					_this.imgUrl = url;
+					window.localStorage.setItem(userid,JSON.stringify({url:url,time:curTime}));
+				}).catch(err => {
+					console.log(err, '请求失败！');
+				});
+			},
+			//关闭
+			closeRssWary(){
+				this.isShowWary = false; 
+			},
+			//显示
+			showRssWary(){ 
+				this.specialScope = [];
+				this.specialName = [];
+				let data = {   
+					userid: this.$store.state.ZHXGUSERID, //用户id
+					session: this.$store.state.ACCESSTOKEN, //session
+				}    
+				verifySubscirbeSubjectRate(data).then(res=>{  
+					if(res.data.result == 1){
+						//没有执行完
+						this.getSubjectInfo(); 
+					}else{
+						this.showPops = true;
+					}
+				}).catch(err=>{ 
+					console.log(res)
+				}) 
+			},
+			//提交订阅专题
+			rssSpecial(){
+				if(this.noAddInfo == 3){ 
+					return false;
+				}
+				if(!this.specialName.length){
+						alert('请选专题信息！');
+						return false;
+				}
+				if(!this.specialScope.length){
+						alert('请选地域信息！');
+						return false;
+				}
+				let subscribeId = this.specialName.join(',')   // 专题ID
+			 	let areaLabelId = this.specialScope.join(',')  // 地域数据 
+				if(this.specialName.length == this.specialScope.length == 1){ 
+					var jx = true;
+					for(var i in this.rssSpecialInfo){
+						var r = this.rssSpecialInfo[i]
+						//判断专题 
+						if(r.subscribeId == subscribeId){ 
+							// 判断是否已经添加过事件 
+							if(r.erea.locationId.indexOf(areaLabelId) > -1){
+								jx = false;
+								break;
+							}
+						}
+					}
+					if(!jx){
+						alert('已经添加过该专题，请在“舆情浏览“专题列表查看！');
+						return false;
+					} 
+				}
+				let data = {
+					subscribeId:subscribeId,
+					areaLabelId:areaLabelId, 
+					shareUserId: this.$store.state.ZHXGUSERID, //用户id
+					userid: this.$store.state.ZHXGUSERID, //用户id
+					session: this.$store.state.ACCESSTOKEN, //用户id
+				}   
+		    saveAddKeyWordSet(data).then(res=>{ 
+					if(res.status == '200'){ 
+						if(res.data.result == 1){
+							this.showPops = true;
+							this.closeRssWary()
+						}
+					}
+				}).catch(err=>{
+					console.log(res)
+				})
+			},
+			//获得订阅专题
+			getSubjectInfo(){
+				let data = { 
+					userid: this.$store.state.ZHXGUSERID, //用户id 
+				}  
+				getSubscribeSubject(data).then(res=>{
+					if(res.status === 200){  
+						this.rssSpecialInfo = res.data.result.data.list || [];  
+						this.setRegionalInfo(); 
+					}
+				}).catch(err=>{
+					console.log(err);
+				})
+			},  
+			//设置地域信息
+			setRegionalInfo(){  
+				//生成地域信息
+				if(this.$store.state.countryId){
+					this.regionalInfo = [{
+						name:this.$store.state.countryName, 
+						id:this.$store.state.countryId
+					},{
+						name:this.$store.state.cityName, 
+						id:this.$store.state.cityId
+					}] 
+				}else if((!this.$store.state.countryId && this.$store.state.cityId) && (this.$store.state.cityName != this.$store.state.provinceName)){
+					this.regionalInfo = [{
+						name:this.$store.state.cityName, 
+						id:this.$store.state.cityId
+					},{
+						name:this.$store.state.provinceName, 
+						id:this.$store.state.provinceId
+					}]
+				}else{
+					this.regionalInfo = [{
+						name:this.$store.state.provinceName, 
+						id:this.$store.state.provinceId
+					}]
+				}				
+				//专题信息 
+				var locationId = ""       //获得已经地域id字符串
+				var len_regional = this.regionalInfo.length // 地域长度 
+				for(var i in this.rssSpecialInfo){ 
+					var e_locationId = this.rssSpecialInfo[i].erea.locationId
+					//获得已经地域id字符串
+					if(e_locationId.length){
+						locationId += this.rssSpecialInfo[i].erea.locationId.join()+',';
+					} 
+					//设置是否显示
+					if(e_locationId.length >= len_regional){ 
+						this.rssSpecialInfo[i].isDisabled = true
+					} 
+				}
+				//地域信息 
+				var infoLen = this.rssSpecialInfo.length;
+				for(var i in this.regionalInfo){
+					var id = this.regionalInfo[i].id;
+					var len = (locationId.split(id)).length-1; 
+					//是否显示地域
+					if(len >= infoLen){
+						this.regionalInfo[i].isDisabled = true
+					} 
+				}
+				//显示弹出
+				this.isShowWary = true; 
+			} 
+		},
+		mounted() {
+			let _this = this;
+			window.addEventListener('scroll', this.scrollToTop);
+			// this.taskNum();
+			// this.intervalTask();
+			if(this.$store.state.ZHXGUSERID == '68741' || this.$store.state.ZHXGUSERID == '36261') {
+					this.diffDate = '7';
+					this.judgedName = '智慧研判';
+					this.judgeNameDetail = '智慧研判';
+			}else {
+					this.diffDate = '30';
+					this.judgedName = '态势感知';
+					this.judgeNameDetail = '北斗舆情态势感知';
+			}
+			globalBus.$on('emitOpenJudged',function(){
+				_this.openJudged();
+			})   
+			if(!this.$store.state.provinceId || this.$store.state.provinceId == '0' || this.$store.state.fisrtIndustry != '1'){
+				//不显示
+				this.isShwoRssButton = false;
+			}else{
+				//显示
+				this.isShwoRssButton = true;
+				// var SUBSCRIBESUBJECT = VueCookies.get('SUBSCRIBESUBJECT') || [];  
+				// var needGetSubscribeSubject = VueCookies.get('needGetSubscribeSubject') || [];  
+				// if(!SUBSCRIBESUBJECT.length || needGetSubscribeSubject == '1'){ 
+				// 	console.log("----------------------查询");
+				// 	this.getSubjectInfo(); 
+				// 	if(needGetSubscribeSubject == '1'){
+				// 		VueCookies.set('needGetSubscribeSubject','');
+				// 	}
+				// }else{
+				// 	console.log("----------------------不查询");
+				// 	this.rssSpecialInfo = (typeof SUBSCRIBESUBJECT == 'string') ? JSON.parse(SUBSCRIBESUBJECT) : SUBSCRIBESUBJECT; 
+				// 	this.setRegionalInfo();
+				// } 
+				//判断是否第一次
+				var isShwoRssWary = VueCookies.get('isShwoRssWary') || ''; 
+				if(isShwoRssWary == ''){
+					this.getSubjectInfo()
+					VueCookies.set('isShwoRssWary','1');
+				}else{
+					this.isShowWary = false
+				}
+			} 
+
+		},
+		destroyed () {
+			window.removeEventListener('scroll', this.scrollToTop);
+		}
+	}
+</script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+	@import url("./sidebar.css");
+</style>

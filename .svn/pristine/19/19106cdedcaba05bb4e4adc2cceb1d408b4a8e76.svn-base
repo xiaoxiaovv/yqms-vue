@@ -1,0 +1,23 @@
+.nodata {
+	position: absolute;
+	top: 46%;
+	left: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+	z-index: 100;
+	color: #2b7cd5;
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+.img_nodata {
+	width: 102px;
+    height: 87px;
+	background: var(--bg-nodata) no-repeat center;
+	background-size: 102px 87px; 
+}
+
+.nodata_text {
+    margin-top: 10px;
+    color: var(--c-nodata);
+}

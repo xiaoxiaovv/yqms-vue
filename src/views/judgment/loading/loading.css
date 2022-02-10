@@ -1,0 +1,17 @@
+.wrap {
+    background-color: var(--bg-wrap);
+}
+.judgment_center {
+	background: var(--bg-content);
+}
+.apply_loading_box {
+    text-align: center;
+    font-size: 16px;
+    min-height: 560px;
+    background: #fff;
+    width: 80%;
+    min-width: 1200px;
+    max-width: 1600px;
+    margin: var(--judgment-model-margin);
+    position: relative;
+}

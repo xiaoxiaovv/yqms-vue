@@ -1,0 +1,101 @@
+.home_center{
+	background: var(--bg-content);
+	padding-bottom: var(--home-center-padding);
+}
+
+.home-center-content {
+	min-width: 1200px;
+	max-width: 1600px;
+	min-height: calc(100vh - 230px);
+	margin: 0 auto;
+	width: 80%;
+}
+.common_width {
+	position: relative;
+	left: 0;
+	width: -webkit-calc((100% - var(--home-model-width)) / 3);
+	width: -moz-calc((100% - var(--home-model-width)) / 3);
+	width: calc((100% - var(--home-model-width)) / 3);
+	height: 556px;
+	float: left;
+	background: var(--bg-content);
+}
+.model_title_box {
+	height: 50px;
+	border-bottom: 1px solid var(--c-db);
+	background: var(--home-title-box);
+}
+.icon_bg {
+	display: inline-block;
+	background: var(--bg-centericons) no-repeat;
+	margin-left: var(--home-title-left);
+}
+.model_title {
+	display: inline-block;
+	height: 24px;
+	font-size: 16px;
+	font-weight:bold;
+	color: var(--home-title);
+}
+.model_content_box {
+	background: var(--c-white);
+}
+.m_right {
+	margin: var(--home-model-top);
+}
+.icon_border {
+	display: inline-block;
+	width: 3px;
+	height: 16px;
+	margin-right: 5px;
+	background: var(--border-5b9fea);
+	vertical-align: top;
+    margin-top: 3px;
+    margin-left: var(--home-title-left);
+}
+.model_title_left {
+	height: 24px;
+	position: relative;
+}
+.model_title_right {
+	height: 16px;
+}
+.switch_btn {
+	width: 16px;
+	height: 16px;
+	background-position: -90px -76px;
+	cursor: pointer;
+	margin-right: var(--home-del);
+}
+.switch_btn:hover {
+	background-position: -120px -76px;
+}
+.del_btn {
+	display: inline-block;
+    width: 17px;
+    height: 16px;
+    background: var(--bg-centericons) no-repeat;
+    background-position: -145px -76px;
+    margin-right: var(--home-del);
+	cursor: pointer;
+}
+.del_btn:hover {
+	background-position: -169px -76px;
+}
+/*删除弹窗提示*/
+.yqms_tips {
+	width: 424px;
+	font-size: 16px;
+	color: var(--c--3);
+	margin: 50px 0 30px 0;
+	text-align: center;
+}
+
+/* 数言舆情背景图设置 */
+.home_center_unicom {
+	background:none; 
+}
+
+.events_content_unicom .eve_list {
+	margin-right: 18px;
+}

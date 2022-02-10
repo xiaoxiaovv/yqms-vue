@@ -1,0 +1,85 @@
+.empty_topic_box .empty_img_bg {
+	width: 143px;
+	height: 126px;
+	background: var(--bg-centericons) no-repeat;
+	background-position: -334px -56px;
+	margin: 46px auto 0;
+}
+.empty_topic_box .add_topic {
+	display: block;
+	width: 150px;
+	height: 40px;
+	line-height: 38px;
+	margin: 15px auto 0;
+	text-align: center;
+	color: var(--c-38a9e1);
+	font-size: 14px;
+	border: 1px dashed var(--c-38a9e1);
+}
+
+.empty_topic_box .icon_border_unicom {
+	margin-left: 10px;
+	width: 6px;
+}
+
+.empty_topic_box .model_content_box_unicom {
+	background: var(--bg-rgb2556);
+}
+.empty_topic_box .el-dialog__title {
+	font-size: 16px;
+	font-weight: 600;
+}
+.empty_topic_box .yqms_err_tips {
+	color: #666;
+	margin-bottom: 6px;
+}
+.empty_topic_box .el-dialog__body {
+	padding: 10px 84px;
+}
+.empty_topic_box .filter_tree {
+	overflow-y: scroll;
+	height: 320px;
+	border-radius: 0 0 2px 2px;
+	border: 1px solid rgba(218,220,223,1);
+	border-top: none;
+	margin-bottom: 30px;
+}
+.empty_topic_box .el-input__inner {
+	border-radius: 2px 2px 0 0;
+    border: 1px solid rgba(218,220,223,1);
+    height: 33px;
+}
+.empty_topic_box .topic-dialog-footer {
+	text-align:center;
+	margin-bottom: 14px;
+}
+.empty_topic_box .el-button {
+	width:96px;
+	height:32px;
+	line-height: 0;
+	border-radius:2px;
+}
+.empty_topic_box .empty_bg {
+	background-image: url('~@ibg/noTopic.png');
+	width: 170px;
+	height: 114px;
+	margin: 0 auto;
+	margin-top: 120px;
+}
+.empty_topic_box .empty_text {
+	margin-top: 33px;
+	text-align: center;
+} 
+.empty_topic_box .go_set_topic_botton{
+	width:96px;
+	height:32px;
+	background:rgba(11,183,70,1);
+	box-shadow:0px 2px 6px 0px rgba(11,183,70,0.6);
+	border-radius:2px;
+	color: #fff;
+    text-align: center;
+    line-height: 32px;
+	margin: 32px auto;
+	margin-bottom: 105px;
+	cursor: pointer;
+}

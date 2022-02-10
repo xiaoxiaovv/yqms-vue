@@ -1,0 +1,118 @@
+.judgment_report_content {
+	text-align: center;
+	color: #222222;
+}
+.judgment_report_reason_box {
+	width: 440px;
+	height: 75px;
+	margin: 20px auto;
+}
+.judgment_report_reason {
+	width: 440px;
+	height: 73px;
+	resize: none;
+	border: 1px solid #DADCDF;
+	border-radius: 2px;
+	padding: 5px 10px;
+	line-height: 21px;
+}
+.judgment_report_checkbox_box {
+	width: 440px;
+	margin: 0px auto;
+}
+.add_email_box {
+	width: 440px;
+	margin: 10px auto;
+	font-size: 14px;
+}
+.receive_title {
+	color: #666;
+}
+.add_txt {
+	color: #5090F1;
+	cursor: pointer;
+}
+.judgment_report_manual_box {
+	width: 440px;
+	margin: 20px auto;
+}
+.search_email,
+.manual_email {
+	width: 440px;
+	height: 32px;
+	line-height: 30px;
+	border: 1px solid #DADCDF;
+	border-radius: 2px;
+	padding: 0px 10px;
+}
+.search_email {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	display: none;
+}
+.report_check {
+	border: 1px solid #DADCDF;
+	border-radius: 2px;
+	/*border-top: none;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;*/
+}
+.select_box {
+	text-align: left;
+	padding: 0 10px;
+}
+.select_box label {
+	color: #5090F1;
+	font-size: 14px;
+	line-height: 32px;
+	margin-right: 12px;
+}
+.select_box label span {
+	display: inline-block;
+}
+.select_txt {
+	cursor: pointer;
+}
+.unclick {
+	cursor: not-allowed;
+	color: rgba(80,144,241,.4);
+}
+.select_list_box {
+	height: 192px;
+	text-align: left;
+}
+.select_list_box label{
+	display: block;
+	line-height: 32px;
+	padding: 0 0 0 10px;
+	margin-right: 0;
+}
+.select_list_box label:hover {
+	background: #EDF3FD;
+}
+.ops_box {
+	font-size:14px;
+}
+.black_txt {
+	color: #222222;
+}
+.blue_txt {
+	color: #5090F1;
+}
+.red_txt {
+	color: #E65441;
+	margin-left: 10px;
+}
+.select_list_box label span.black_txt {
+	width: 324px;
+}
+.err_box {
+	width: 440px;
+	margin: -15px auto 5px;
+	color: red;
+	font-size: 12px;
+	text-align: left;
+}
+.err2_box {
+	margin: -12px auto 5px;
+}
